@@ -49,11 +49,10 @@
 		},
 		"ParsedownExtendedParameters": {
 			"value": {
-				"math": {
-					"single_dollar": true
-				},
-				"sup": true,
-				"sub": true
+				"emphasis": {
+					"superscript": true,
+					"subscript": true
+				}
 			}
 		}
 	},
