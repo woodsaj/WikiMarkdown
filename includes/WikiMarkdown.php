@@ -57,6 +57,10 @@ class WikiMarkdown {
 			'/<a\s+href="(.*)">(.*)<\/a>/isU',
 			function ($matches) use (&$parser) {
 				$url = html_entity_decode($matches[1]);
+				// dont modify the url if it links to a section in the current page
+				if (str_starts_with($url, '#' )) {
+					return $matches[0];
+                                }
 				$text = html_entity_decode($matches[2]);
 				$linkType = $url == $text ? 'free' : 'text';
 				$cleanUrl = Sanitizer::cleanUrl($url);
